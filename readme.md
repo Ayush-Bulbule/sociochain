@@ -1,4 +1,4 @@
-### Sociochain - A Decentralized Social Media Platform
+# Sociochain - A Decentralized Social Media Platform
 
 
-🚧 Work in progress....
+## 🚧 Work in progress....
