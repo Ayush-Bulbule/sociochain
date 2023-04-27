@@ -34,13 +34,13 @@ export default function Home() {
 
 
           {/* Body */}
-          <div class="p-4 -dashed rounded-lg">
+          <div class="pt-20 -dashed rounded-lg">
             <div class="grid grid-cols-3 gap-4 mb-4">
               <div className='col-span-2'>
                 <PostCard />
               </div>
 
-              <Advertise/>
+              <Advertise />
 
             </div>
 

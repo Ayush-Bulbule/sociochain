@@ -1,8 +1,21 @@
-import { HiSun } from 'react-icons/hi';
+import { useTheme } from 'next-themes';
+import { useEffect } from 'react';
+import { HiMoon, HiSun } from 'react-icons/hi';
 
 export default function Navbar() {
+    const { theme, setTheme } = useTheme();
+
+    useEffect(() => {
+        return setTheme('dark');
+    }, [])
+
+    const toggleTheme = () => {
+        theme === 'dark' ? setTheme('light') : setTheme('dark');
+    }
+
+
     return (
-        <nav class="sm:ml-64 bg-white border-gray-200 py-2 border-b-2 dark:bg-gray-900">
+        <nav class="sm:ml-64 fixed top-0 left-0 right-0 bg-white border-gray-200 py-2 border-b-2 dark:bg-slate-900 dark:border-slate-700">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="/" class="flex items-center">
                     <img src="logo.png" class="h-8 mr-3" alt="Flowbite Logo" />
@@ -15,7 +28,7 @@ export default function Navbar() {
                             <span class="sr-only">Open user menu</span>
                             <img class="w-8 h-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="user photo" />
                         </button>
-                        <span><HiSun className='text-2xl ml-3' /></span>
+                        <button onClick={toggleTheme} className='cursor-pointer'>{theme == 'dark' ? <HiSun className='text-2xl ml-3' /> : <HiMoon className='text-2xl ml-3' />}</button>
                     </div>
                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
                         <div class="px-4 py-3">

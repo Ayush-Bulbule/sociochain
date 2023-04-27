@@ -14,6 +14,13 @@ module.exports = {
       fontFamily: {
         Outfit: ["Outfit", "sans-serif"],
       },
+      colors: {
+        dark: {
+          background: '#0f172a', // define a dark mode background color
+        },
+      }
+
+      // add other variants as needed
     },
   },
   plugins: [
