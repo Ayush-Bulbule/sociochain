@@ -2,6 +2,7 @@ import Head from 'next/head'
 import PostCard from '../components/PostCard1'
 import Sidebar from '@/components/Sidebar'
 import Navbar from '@/components/Navbar'
+import Advertise from '@/components/Advertise'
 
 
 export default function Home() {
@@ -21,8 +22,11 @@ export default function Home() {
           </svg>
         </button>
 
-        <Sidebar />
-        <Navbar />
+        <div className='w-full'>
+
+          <Sidebar />
+          <Navbar />
+        </div>
         <div class="p-4 sm:ml-64">
           {/* NavBar */}
 
@@ -31,9 +35,13 @@ export default function Home() {
 
           {/* Body */}
           <div class="p-4 -dashed rounded-lg">
-            <div class="grid grid-cols-2 gap-4 mb-4">
-              <PostCard/>
-            
+            <div class="grid grid-cols-3 gap-4 mb-4">
+              <div className='col-span-2'>
+                <PostCard />
+              </div>
+
+              <Advertise/>
+
             </div>
 
 
