@@ -9,8 +9,6 @@ export default function Login() {
     return (
 
         <div className="font-Outfit m-0 bg-slate-900 shadow flex justify-center flex-1 h-screen">
-
-
             <div className="lg:w-1/2 xl:w-5/12 flex flex-col items-center justify-center p-6 sm:p-12">
                 <h2 className='text-white font-medium text-center text-2xl text-2 '>Login to Sociochain</h2>
                 <form action="" className="wrapper p-16 w-full">
@@ -27,7 +25,7 @@ export default function Login() {
                                 <label class="px-3 py-3 text-2xl text-gray-200 font-mono cursor-pointer js-password-label" for="toggle">{showPass ? <HiEye /> : <HiEyeOff />}</label>
                             </div>
                             <input class="px-4 py-3 mt-4 font text-xl bg-slate-800 border-2 rounded-md outline-none text-white border-slate-600 w-full focus:border-blue-400" id="password" type={showPass ? "text" : "password"} autocomplete="off"
-                            />
+                             />
                         </div>
                     </div>
                     <button type="submit" className='px-4 py-3 mt-16 font text-xl bg-blue-700 rounded-md outline-none text-white border-slate-600 w-full'>Login</button>
