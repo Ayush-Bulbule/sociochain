@@ -150,7 +150,7 @@ contract Socialchain{
         string calldata _username,
         string calldata _password
 
-     ) public payable {
+    ) public payable {
 
         advertises.push(Advertise(
             _id,
