@@ -1,0 +1,23 @@
+.brandLogo {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.brandLogo:after {
+    content: "";
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    left: auto;
+    top: 0;
+    bottom: 0;
+    right: -20%;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0), #0f172a, rgba(255, 255, 255, 0));
+}
+
+.brandLogo:hover:after {
+    transition: all 0.7s ease-out;
+    right: 100%;
+}
