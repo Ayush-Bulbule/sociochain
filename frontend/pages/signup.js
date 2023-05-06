@@ -25,12 +25,12 @@ export default function Login() {
 
                     <div className="mt-8">
                         <label htmlFor="username" className="text-gray-400 text-xl mb-3">password:</label>
-                        <div class="relative w-full">
-                            <div class="absolute inset-y-0 right-0 flex items-center px-2 mt-4 justify-center">
-                                <input class="hidden js-password-toggle" id="toggle" type="checkbox" onClick={() => setShowPass(!showPass)} />
-                                <label class="px-3 py-3 text-2xl text-gray-200 font-mono cursor-pointer js-password-label" for="toggle">{showPass ? <HiEye /> : <HiEyeOff />}</label>
+                        <div className="relative w-full">
+                            <div className="absolute inset-y-0 right-0 flex items-center px-2 mt-4 justify-center">
+                                <input className="hidden js-password-toggle" id="toggle" type="checkbox" onClick={() => setShowPass(!showPass)} />
+                                <label className="px-3 py-3 text-2xl text-gray-200 font-mono cursor-pointer js-password-label" for="toggle">{showPass ? <HiEye /> : <HiEyeOff />}</label>
                             </div>
-                            <input class="px-4 py-3 mt-4 font text-xl bg-slate-800 border-2 rounded-md outline-none text-white border-slate-600 w-full focus:border-blue-400" id="password" type={showPass ? "text" : "password"} autocomplete="off"
+                            <input className="px-4 py-3 mt-4 font text-xl bg-slate-800 border-2 rounded-md outline-none text-white border-slate-600 w-full focus:border-blue-400" id="password" type={showPass ? "text" : "password"} autocomplete="off"
                             />
                         </div>
                     </div>
