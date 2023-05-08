@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 
 
 export default function Navbar() {
-    const { theme, setTheme } = useTheme();
+    const { theme, setTheme } = useTheme('dark');
 
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -27,7 +27,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="sm:ml-64 fixed top-0 left-0 right-0 bg-white border-gray-200 py-2 border-b-2 dark:bg-slate-900 dark:border-slate-700">
+            <nav className="sm:ml-64 fixed top-0 left-0 right-0 bg-white border-gray-200 py-2 border-b-2 dark:bg-gray-900 dark:border-slate-700">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-6 p-2 sm:p-4">
                     <a href="/" className="flex items-center">
                         <img src="logo.png" className="h-9 mr-3" alt="Flowbite Logo" />

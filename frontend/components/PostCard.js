@@ -3,8 +3,8 @@ import React from 'react'
 
 const PostCard = () => {
   return (
-    <div className="avatar flex flex-col space-y-6 items-start">
-      <div className="w-full backdrop-filter backdrop-blur-lg rounded-lg p-8 bg-[#1e1f23] flex flex-row border  dark:bg-slate-900 dark:border-slate-700">
+    <div className="avatar flex flex-col w-full space-y-6 items-start">
+      <div className="w-full backdrop-filter backdrop-blur-lg rounded-lg p-8  flex flex-row border  dark:bg-gray-900 dark:border-slate-700">
         <div className="avatar flex items-start w-1/12  ">
           <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" className="w-10 h-10" />
         </div>
