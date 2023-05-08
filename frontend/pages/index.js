@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import PostCard from '../components/PostCard1'
 import Navbar from '@/components/Navbar'
-import Advertise from '@/components/Advertise'
+// import Advertise from '@/components/Advertise'
 import NewPost from '@/components/NewPost'
 
 
@@ -16,14 +16,14 @@ export default function Home() {
       </Head>
       <main>
         {/* NavBar */}
-        <div className='w-full'>
+        <div className='w-full '>
           <Navbar />
         </div>
-        <div className="p-4 sm:ml-64 dark:bg-gray-950">
+        <div className="p-4 lg:ml-64 dark:bg-gray-950">
           {/* Body */}
           <div className="pt-20 bg-rounded-lg ">
-            <div className="grid grid-cols-4 gap-4 mb-4">
-              <div className='col-span-4 sm:col-span-2 '>
+            <div className="grid lg:grid-cols-5 gap-4 mb-4">
+              <div className='col-span-4 sm:col-span-3 '>
                 <PostCard />
                 <PostCard />
                 <PostCard />
@@ -31,7 +31,7 @@ export default function Home() {
                 <PostCard />
                 <PostCard />
               </div>
-              <div className="hidden sticky  sm:block sm:col-span-2 pr-3">
+              <div className=" hidden sticky lg:block xl:col-span-2 pr-3">
 
                 <NewPost />
 
