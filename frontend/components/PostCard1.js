@@ -1,4 +1,4 @@
-import { HiOutlineHeart, HiOutlineRefresh, HiOutlineShare } from 'react-icons/hi'
+import { HiOutlineHeart, HiOutlineRefresh, HiOutlineShare, HiOutlineFlag } from 'react-icons/hi'
 
 
 export default function PostCard() {
@@ -29,8 +29,8 @@ export default function PostCard() {
                             <p className="text-xs px-2">Share</p>
                         </div>
                         <div className="action md:px-3 text-gray-300 hover:text-rose-400 flex cursor-pointer">
-                            <HiOutlineHeart />
-                            <p className="text-xs px-2">Like</p>
+                            <HiOutlineFlag />
+                            <p className="text-xs px-2">Flag</p>
                         </div>
                     </div>
                 </div>
