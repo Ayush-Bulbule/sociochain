@@ -1,46 +1,66 @@
-export default function Navbar() {
-    return (
-        <nav class="sm:ml-64 bg-white border-gray-200 dark:bg-gray-900">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="/" class="flex items-center">
-                    <img src="logo.png" class="h-8 mr-3" alt="Flowbite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">sociochain</span>
-                </a>
-                <div class="flex items-center md:order-2">
-                    <div className="right">
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import { HiMoon, HiOutlineMenuAlt2, HiOutlineX, HiSun } from 'react-icons/hi';
+import styles from '../styles/Navbar.module.css'
+import Sidebar from './Sidebar';
 
-                        <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                            <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="user photo" />
-                        </button>
-                        <span></span>
-                    </div>
-                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
-                        <div class="px-4 py-3">
-                            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                            <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+
+export default function Navbar() {
+    const { theme, setTheme } = useTheme('dark');
+
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const handleSidebarToggle = () => {
+        console.log(isSidebarOpen);
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
+    useEffect(() => {
+        return setTheme('dark');
+    }, [])
+
+    const toggleTheme = () => {
+        theme === 'dark' ? setTheme('light') : setTheme('dark');
+    }
+
+
+    return (
+        <>
+            <nav className="sm:ml-64 fixed top-0 left-0 right-0 bg-white border-gray-200 py-2 border-b-2 dark:bg-gray-900 dark:border-slate-700">
+                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-6 p-2 sm:p-4">
+                    <a href="/" className="flex items-center">
+                        <img src="logo.png" className="h-9 mr-3" alt="Flowbite Logo" />
+                        <span className={` ${styles.brandLogo} self-center text-2xl font-semibold whitespace-nowrap dark:text-white `}>sociochain</span>
+                    </a>
+                    <div className="flex items-center md:order-2">
+                        <div className="items-center hidden sm:flex justify-center">
+
+                            <button type="button" className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                                <span className="sr-only">Open user menu</span>
+                                <img className="w-8 h-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="user photo" />
+                            </button>
+                            <button onClick={toggleTheme} className='outline-none cursor-pointer'>{theme == 'dark' ? <HiSun className='text-2xl ml-3' /> : <HiMoon className='text-2xl ml-3' />}</button>
                         </div>
-                        <ul class="py-2" aria-labelledby="user-menu-button">
-                            <li>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                            </li>
-                        </ul>
+
+
+                        <button onClick={handleSidebarToggle} data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                            <span className="sr-only">Open sidebar</span>
+                            {
+                                isSidebarOpen ?
+                                    <HiOutlineX className='text-xl' />
+                                    :
+                                    <HiOutlineMenuAlt2 className='text-xl' />
+
+                            }
+
+
+                        </button>
                     </div>
-                    <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                    </button>
                 </div>
-            </div>
-        </nav>
+            </nav>
+            <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+
+        </>
     );
 }
