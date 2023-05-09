@@ -2,6 +2,8 @@ import Head from 'next/head'
 import PostCard from '../components/PostCard1'
 import Navbar from '@/components/Navbar'
 // import Advertise from '@/components/Advertise'
+import { FiSend } from 'react-icons/fi'
+
 import NewPost from '@/components/NewPost'
 
 
@@ -22,7 +24,7 @@ export default function Home() {
         <div className="p-4 lg:ml-64 dark:bg-gray-950">
           {/* Body */}
           <div className="pt-20 bg-rounded-lg ">
-            <div className="grid lg:grid-cols-5 gap-4 mb-4">
+            <div className="sm:grid lg:grid-cols-5 gap-4 mb-4">
               <div className='col-span-4 sm:col-span-3 '>
                 <PostCard />
                 <PostCard />
@@ -31,10 +33,14 @@ export default function Home() {
                 <PostCard />
                 <PostCard />
               </div>
-              <div className=" hidden sticky lg:block xl:col-span-2 pr-3">
+              <div className="fixed  hidden  lg:block xl:col-span-2 pr-3">
 
                 <NewPost />
 
+              </div>
+
+              <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
+                <FiSend className='font-2xl' />
               </div>
               {/* <Advertise /> */}
             </div>

@@ -5,7 +5,7 @@ export default function PostCard() {
     return (
 
         <div className="avatar  space-y-6 items-start m-3">
-            <div className=" w-full flex my-2 flex-row bg-white p-3 sm:p-4 border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-slate-700">
+            <div className=" w-full flex my-2 flex-row bg-white p-4 border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-slate-700">
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" className="w-8 h-8 sm:w-10 sm:h-10" />
                 <div className="flex flex-col pl-2 sm:pl-4 pr-2">
                     <div className="avatar flex items-center">
