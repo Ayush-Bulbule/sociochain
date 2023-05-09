@@ -35,7 +35,6 @@ export default function Navbar() {
                     </a>
                     <div className="flex items-center md:order-2">
                         <div className="items-center hidden lg:flex justify-center">
-
                             <button type="button" className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                                 <span className="sr-only">Open user menu</span>
                                 <img className="w-8 h-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="user photo" />
@@ -51,10 +50,7 @@ export default function Navbar() {
                                     <HiOutlineX className='text-xl' />
                                     :
                                     <HiOutlineMenuAlt2 className='text-xl' />
-
                             }
-
-
                         </button>
                     </div>
                 </div>

@@ -3,18 +3,60 @@ import PostCard from '../components/PostCard1'
 import Navbar from '@/components/Navbar'
 // import Advertise from '@/components/Advertise'
 import NewPost from '@/components/NewPost'
-import {contractAddress} from '../../backend/config'
+import { contractAddress } from '../../backend/config'
 import abi from '../../backend/artifacts/contracts/Socialchain.sol/Socialchain.json'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Web3Modal from 'web3modal'
+import {ethers} from 'ethers'
 
 
 
 export default function Home() {
 
+  const [messages, setMessages] = useState([]);
+
+
   useEffect(() => {
     console.log(contractAddress)
-  },[])
+  }, [])
+
+  async function getMessages() {
+    try {
+      const web3Modal = new Web3Modal()
+      const connection = await web3Modal.connect()
+      const provider = new ethers.providers.Web3Provider(connection)
+      const signer = provider.getSigner()
+      const contract = new ethers.Contract(
+        contractAddress,
+        abi.abi,
+        signer
+      )
+
+      const msgList = await contract.getPost()
+      let messagesClean = [];
+      msgList.forEach((message) => {
+        messagesClean.push({
+          id: message.id.toString(),
+          content: message.content,
+          likes: message.likes.toNumber(),
+          dislikes: message.dislikes.toNumber(),
+          imageurl: message.image,
+          username: message.account.username,
+        })
+      })
+
+      setMessages(messagesClean);
+      console.log(messagesClean);
+
+    } catch (e) {
+      console.log(e);
+    }
+
+  }
+
+  useEffect(() => {
+    getMessages()
+  }, [])
 
 
   return (

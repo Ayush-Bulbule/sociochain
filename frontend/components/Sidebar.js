@@ -1,6 +1,8 @@
 import { HiHome, HiSearch } from 'react-icons/hi';
 import { useState, useEffect } from 'react';
 import { MdLogout, MdPostAdd } from 'react-icons/md'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
 
 export default function Sidebar({ isOpen }) {
 
@@ -66,6 +68,16 @@ export default function Sidebar({ isOpen }) {
                 <span><MdLogout className='text-xl text-gray-500' /></span>
                 <span className="flex-1 ml-3 whitespace-nowrap">Log Out</span>
               </a>
+            </li>
+
+            <li>
+              <ConnectButton
+                // chainStatus="none" 
+                showBalance={{
+                  smallScreen: false,
+                  largeScreen: false,
+                }}
+              />
             </li>
           </ul>
         </div>

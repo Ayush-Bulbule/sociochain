@@ -15,7 +15,6 @@ contract Socialchain{
 
     struct Post{
         uint256 id;
-        string title;
         string content;
         uint256 likes;
         uint256 dislikes;
@@ -56,7 +55,6 @@ contract Socialchain{
 
     event NewPost(
         uint256 id,
-        string title,
         string content,
         uint256 likes,
         uint256 dislikes,
@@ -68,7 +66,6 @@ contract Socialchain{
 
     function postMessage(
         uint256 _id,
-        string calldata _title, 
         string calldata _content,
         string calldata _image, 
         string calldata _username,
@@ -78,7 +75,6 @@ contract Socialchain{
         posts.push(
             Post(
                 _id,
-                _title,
                 _content,
                 0,
                 0,
@@ -96,7 +92,6 @@ contract Socialchain{
 
         emit NewPost(
                 _id,
-                _title,
                 _content,
                 0,
                 0,
