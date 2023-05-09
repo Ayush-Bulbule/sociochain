@@ -3,9 +3,20 @@ import PostCard from '../components/PostCard1'
 import Sidebar from '@/components/Sidebar'
 import Navbar from '@/components/Navbar'
 import Advertise from '@/components/Advertise'
+import {contractAddress} from '../../backend/config'
+import abi from '../../backend/artifacts/contracts/Socialchain.sol/Socialchain.json'
+import { useEffect } from 'react'
+import Web3Modal from 'web3modal'
+
 
 
 export default function Home() {
+
+  useEffect(() => {
+    console.log(contractAddress)
+  },[])
+
+
   return (
     <>
       <Head>
