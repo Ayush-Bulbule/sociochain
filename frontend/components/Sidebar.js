@@ -18,7 +18,7 @@ export default function Sidebar({ isOpen }) {
   return (
     <>
 
-      <aside id="default-sidebar" className={`sidebar ${isSidebarOpen ? '' : '-translate-x-full'} fixed border-r-2 border-gray-200 top-0 left-0 z-40 w-64 h-screen transition-transform  lg:translate-x-0 dark:bg-gray-900 dark:border-slate-700`} aria-label="Sidebar">
+      <aside id="default-sidebar" className={`sidebar ${isSidebarOpen ? '' : '-translate-x-full'} fixed border-r-2 border-gray-500 top-0 left-0 z-40 w-64 h-screen transition-transform  lg:translate-x-0 dark:bg-gray-900 dark:border-slate-800`} aria-label="Sidebar">
         <div className="h-full px-3 py-10 overflow-y-auto bg-gray-50 dark:bg-gray-900">
 
 

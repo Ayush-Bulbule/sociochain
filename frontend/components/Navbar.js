@@ -27,7 +27,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="lg:ml-64 fixed top-0 left-0 right-0 bg-white border-gray-200 py-2 border-b-2 dark:bg-gray-900 dark:border-slate-700">
+            <nav className="lg:ml-64 fixed top-0 left-0 right-0 bg-white border-gray-200 py-2 border-b-2 dark:bg-gray-900 dark:border-slate-800">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-6 p-2 md:p-4">
                     <a href="/" className="flex items-center">
                         <img src="logo.png" className="h-9 mr-3" alt="Flowbite Logo" />
