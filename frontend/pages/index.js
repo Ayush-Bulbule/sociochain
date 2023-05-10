@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import PostCard from '../components/PostCard1'
+import PostCard from '../components/PostCard'
 import Navbar from '@/components/Navbar'
 // import Advertise from '@/components/Advertise'
 import { FiSend } from 'react-icons/fi'
@@ -9,7 +9,7 @@ import { contractAddress } from '../../backend/config'
 import abi from '../../backend/artifacts/contracts/Socialchain.sol/Socialchain.json'
 import { useEffect, useState } from 'react'
 import Web3Modal from 'web3modal'
-import {ethers} from 'ethers'
+import { ethers } from 'ethers'
 
 
 
