@@ -9,7 +9,7 @@ import { contractAddress } from '../../backend/config'
 import abi from '../../backend/artifacts/contracts/Socialchain.sol/Socialchain.json'
 import { useEffect, useState } from 'react'
 import Web3Modal from 'web3modal'
-import {ethers} from 'ethers'
+import { ethers } from 'ethers'
 
 
 
@@ -49,7 +49,6 @@ export default function Home() {
 
       setMessages(messagesClean);
       console.log(messagesClean);
-
     } catch (e) {
       console.log(e);
     }
@@ -79,17 +78,24 @@ export default function Home() {
           <div className="pt-20 bg-rounded-lg ">
             <div className="sm:grid lg:grid-cols-5 gap-4 mb-4">
               <div className='col-span-4 sm:col-span-3 '>
-                <PostCard />
-                <PostCard />
-                <PostCard />
-                <PostCard />
-                <PostCard />
+                {messages.map((message, i) => {
+                  return (
+                    <div key={i}>
+                      <PostCard
+                        msg={message.content}
+                        imageurl={message.imageurl}
+                        likes={message.likes}
+                        flag={message.dislikes}
+                        username={message.username}
+                      />
+                    </div>
+                  )
+                })
+                }
                 <PostCard />
               </div>
               <div className="fixed  hidden  lg:block xl:col-span-2 pr-3">
-
                 <NewPost />
-
               </div>
 
               <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
