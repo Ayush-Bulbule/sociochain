@@ -12,11 +12,14 @@ export default function Login() {
         <div className="font-Outfit m-0 bg-gray-900 shadow flex justify-center flex-1 h-screen">
 
 
-            <div className="lg:w-1/2 xl:w-5/12 flex flex-col items-center justify-center p-6 sm:p-12">
-                <h2 className='text-white font-medium text-center text-2xl text-2 '>SignUp to Sociochain</h2>
-                <form action="" className="wrapper p-16 w-full">
+            <div className="lg:w-1/2 xl:w-5/12 py-6 flex flex-col items-center justify-center p-6 sm:p-12">
+                <img src="logo.png" className="h-12 mr-3" alt="Flowbite Logo" />
+                <span className="mt-3 self-center text-3xl font-semibold whitespace-nowrap dark:text-white text-white">SignUp to Sociochain</span>
+
+
+                <form action="" className="wrapper px-16 py-8 w-full">
                     {/* email */}
-                    <div className="mt-8">
+                    <div className="">
                         <label htmlFor="username" className="text-gray-400 text-xl mb-3">email:</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 top-0 flex items-center pl-3 pointer-events-none">
@@ -53,11 +56,12 @@ export default function Login() {
                     </div>
                     <button type="submit" className='w-full px-4 py-3 mt-10 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm  text-center mr-2 mb-2 '>Signup</button>
                 </form>
-                <p className="text-md text-gray-300">Already have an Account? <Link href={"/signup"} className="text-blue-500 underline">Login Now!</Link></p>
+                <p className="text-md text-gray-300">Already have an Account? <Link href={"/login"} className="text-blue-500 underline">Login Now!</Link></p>
             </div>
             <div className="flex-1 bg-slate-800 text-center hidden lg:flex h-screen">
                 <img src="login_img.png" alt="Login Png" />
             </div>
+
 
         </div>
     )

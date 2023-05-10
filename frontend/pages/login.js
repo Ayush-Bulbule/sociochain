@@ -10,8 +10,10 @@ export default function Login() {
 
         <div className="font-Outfit m-0 bg-gray-900 shadow flex justify-center flex-1 h-screen">
             <div className="lg:w-1/2 xl:w-5/12 flex flex-col items-center justify-center p-6 sm:p-12">
-                <h2 className='text-white font-medium text-center text-2xl text-2 '>Login to Sociochain</h2>
-                <form action="" className="wrapper p-16 w-full">
+                <img src="logo.png" className="h-12 mr-3" alt="Flowbite Logo" />
+                <span className={`  mt-3 self-center text-3xl font-semibold whitespace-nowrap dark:text-white text-white `}>Login to Sociochain</span>
+                <h2 className='text-white font-medium text-center text-2xl text-2 '></h2>
+                <form action="" className="wrapper pt-8 p-16 w-full">
                     <div className="mt-8">
                         <label htmlFor="username" className="text-gray-400 text-xl mb-3">username:</label>
                         <div className="relative">
