@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useState } from 'react'
 import { GoSignIn } from 'react-icons/Go'
 import { HiEye, HiEyeOff } from 'react-icons/hi'
+import styles from '../styles/Navbar.module.css'
 
 export default function Login() {
 
@@ -10,15 +11,17 @@ export default function Login() {
 
         <div className="font-Outfit m-0 bg-gray-900 shadow flex justify-center flex-1 h-screen">
             <div className="lg:w-1/2 xl:w-5/12 flex flex-col items-center justify-center p-6 sm:p-12">
-                <h2 className='text-white font-medium text-center text-2xl text-2 '>Login to Sociochain</h2>
-                <form action="" className="wrapper p-16 w-full">
+                <img src="logo.png" className="h-12 mr-3" alt="Flowbite Logo" />
+                <span className={`  mt-3 self-center text-3xl font-semibold whitespace-nowrap dark:text-white text-white `}>Login to Sociochain</span>
+                <h2 className='text-white font-medium text-center text-2xl text-2 '></h2>
+                <form action="" className="wrapper pt-8 p-16 w-full">
                     <div className="mt-8">
-                        <label htmlFor="username" className="text-gray-400 text-xl mb-3">username:</label>
+                        <label htmlFor="username" className="text-gray-400 text-xl mb-3">Username:</label>
                         <input type="text" hint="username" className='px-4 py-3 mt-4 font text-xl bg-slate-800 border-2 rounded-md outline-none text-white border-slate-600 w-full focus:border-blue-400' />
                     </div>
 
                     <div className="mt-8">
-                        <label htmlFor="username" className="text-gray-400 text-xl mb-3">password:</label>
+                        <label htmlFor="username" className="text-gray-400 text-xl mb-3">Password:</label>
                         <div className="relative w-full">
                             <div className="absolute inset-y-0 right-0 flex items-center px-2 mt-4 justify-center">
                                 <input className="hidden js-password-toggle" id="toggle" type="checkbox" onClick={() => setShowPass(!showPass)} />
