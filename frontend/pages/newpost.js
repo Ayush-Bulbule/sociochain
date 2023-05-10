@@ -1,8 +1,10 @@
+import Layout from "@/components/Layout";
+
 export default function NewPost() {
 
     return (
-        <div className="container">
+        <Layout>
 
-        </div>
+        </Layout>
     )
 }
