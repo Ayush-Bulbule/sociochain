@@ -1,7 +1,7 @@
 import { HiOutlineHeart, HiOutlineRefresh, HiOutlineShare, HiOutlineFlag } from 'react-icons/hi'
 
 
-export default function PostCard({msg , imageurl, likes, flag, username}) {
+export default function PostCard({ msg, imageurl, likes, flag, username, likeMsg }) {
     return (
 
         <div className="avatar  space-y-6 items-start m-3">
@@ -10,7 +10,7 @@ export default function PostCard({msg , imageurl, likes, flag, username}) {
                 <div className="flex flex-col pl-2 sm:pl-4 pr-2">
                     <div className="avatar flex items-center">
                         <h6 className="text-sm font-semibold tracking-tight text-gray-950 dark:text-white">
-                             {username}
+                            {username}
                         </h6>
                     </div>
                     <p className="mb-3 font-normal text-gray-500 dark:text-gray-400 text-sm text-justify">{msg}</p>
@@ -18,7 +18,7 @@ export default function PostCard({msg , imageurl, likes, flag, username}) {
                     <div className="flex flex-row">
                         <div className="action hover:text-rose-400 md:px-3 flex cursor-pointer">
                             <HiOutlineHeart />
-                            <p className="text-xs px-2 ">Like {likes}</p>
+                            <p onClick={likeMsg} className="text-xs px-2 ">Like {likes}</p>
                         </div>
                         <div className="action md:px-3 text-gray-300 hover:text-green-400 flex cursor-pointer">
                             <HiOutlineRefresh />

@@ -55,6 +55,23 @@ export default function Home() {
 
   }
 
+  async function likeMsg(id) {
+    try {
+      const web3Modal = new Web3Modal()
+      const connection = await web3Modal.connect()
+      const provider = new ethers.providers.Web3Provider(connection)
+      const signer = provider.getSigner()
+      const contract = new ethers.Contract(
+        contractAddress,
+        abi.abi,
+        signer
+      )
+      await contract.likePost(id);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   useEffect(() => {
     getMessages()
   }, [])
@@ -87,6 +104,7 @@ export default function Home() {
                         likes={message.likes}
                         flag={message.dislikes}
                         username={message.username}
+                        likeMsg={() => likeMsg(i)}
                       />
                     </div>
                   )
