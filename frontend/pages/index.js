@@ -72,7 +72,7 @@ export default function Home() {
     }
   }
 
-  async function flagMessage() {
+  async function flagMessage(id) {
     try {
       const web3Modal = new Web3Modal()
       const connection = await web3Modal.connect()
@@ -87,7 +87,6 @@ export default function Home() {
     } catch (e) {
       console.log(e);
     }
-
   }
 
   useEffect(() => {
