@@ -4,7 +4,6 @@ import { HiMoon, HiOutlineMenuAlt2, HiOutlineX, HiSun } from 'react-icons/hi';
 import styles from '../styles/Navbar.module.css'
 import Sidebar from './Sidebar';
 
-
 export default function Navbar() {
     const { theme, setTheme } = useTheme('dark');
 
