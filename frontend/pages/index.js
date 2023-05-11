@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import PostCard from '../components/PostCard1'
+import PostCard from '../components/PostCard'
 import Navbar from '@/components/Navbar'
 // import Advertise from '@/components/Advertise'
 import { FiSend } from 'react-icons/fi'
@@ -90,7 +90,7 @@ export default function Home() {
         <div className='w-full '>
           <Navbar />
         </div>
-        <div className="p-4 lg:ml-64 dark:bg-gray-950">
+        <div className="p-4 lg:ml-64 dark:bg-gray-950 h-screen">
           {/* Body */}
           <div className="pt-20 bg-rounded-lg ">
             <div className="sm:grid lg:grid-cols-5 gap-4 mb-4">
@@ -110,7 +110,6 @@ export default function Home() {
                   )
                 })
                 }
-                <PostCard />
               </div>
               <div className="fixed  hidden  lg:block xl:col-span-2 pr-3">
                 <NewPost />
