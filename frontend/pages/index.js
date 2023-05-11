@@ -10,6 +10,7 @@ import abi from '../../backend/artifacts/contracts/Socialchain.sol/Socialchain.j
 import { useEffect, useState } from 'react'
 import Web3Modal from 'web3modal'
 import { ethers } from 'ethers'
+import Layout from '@/components/Layout'
 
 
 
@@ -102,13 +103,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./logo.png" />
       </Head>
-      <main>
-        {/* NavBar */}
-        <div className='w-full '>
-          <Navbar />
-        </div>
-        <div className="p-4 lg:ml-64 dark:bg-gray-950 h-screen">
-          {/* Body */}
+      <Layout>  {/* Body */}
           <div className="pt-20 bg-rounded-lg ">
             <div className="sm:grid lg:grid-cols-5 gap-4 mb-4">
               <div className='col-span-4 sm:col-span-3 '>
@@ -133,13 +128,13 @@ export default function Home() {
                 <NewPost />
               </div>
 
-            <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
-              <FiSend className='font-2xl' />
+              <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
+                <FiSend className='font-2xl' />
+              </div>
+              {/* <Advertise /> */}
             </div>
-            {/* <Advertise /> */}
           </div>
-        </div>
-      </Layout >
+        </Layout>
     </>
   )
 }
