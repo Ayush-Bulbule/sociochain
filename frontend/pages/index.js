@@ -117,16 +117,6 @@ export default function Home() {
             </div>
             {/* <Advertise /> */}
           </div>
-          <div className="fixed  hidden  lg:block xl:col-span-2 pr-3">
-
-            <NewPost />
-
-          </div>
-
-          <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
-            <FiSend className='font-2xl' />
-          </div>
-          {/* <Advertise /> */}
         </div>
 
       </Layout >
