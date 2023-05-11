@@ -133,14 +133,13 @@ export default function Home() {
                 <NewPost />
               </div>
 
-              <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
-                <FiSend className='font-2xl' />
-              </div>
-              {/* <Advertise /> */}
+            <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
+              <FiSend className='font-2xl' />
             </div>
+            {/* <Advertise /> */}
           </div>
         </div>
-      </main >
+      </Layout >
     </>
   )
 }

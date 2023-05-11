@@ -1,5 +1,7 @@
 import { HiOutlineHeart, HiOutlineRefresh, HiOutlineShare, HiOutlineFlag } from 'react-icons/hi'
 
+import { HiOutlineHeart, HiOutlineRefresh, HiOutlineShare, HiOutlineFlag } from 'react-icons/hi'
+
 
 export default function PostCard({ msg, imageurl, likes, flag, username, likeMsg,flagMessage }) {
     return (
