@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import PostCard from '../components/PostCard'
+import PostCard from '@/components/PostCard'
 import Navbar from '@/components/Navbar'
 // import Advertise from '@/components/Advertise'
 import { FiSend } from 'react-icons/fi'
@@ -72,6 +72,24 @@ export default function Home() {
     }
   }
 
+  async function flagMessage() {
+    try {
+      const web3Modal = new Web3Modal()
+      const connection = await web3Modal.connect()
+      const provider = new ethers.providers.Web3Provider(connection)
+      const signer = provider.getSigner()
+      const contract = new ethers.Contract(
+        contractAddress,
+        abi.abi,
+        signer
+      )
+      await contract.disLikePost(id);
+    } catch (e) {
+      console.log(e);
+    }
+
+  }
+
   useEffect(() => {
     getMessages()
   }, [])
@@ -105,6 +123,7 @@ export default function Home() {
                         flag={message.dislikes}
                         username={message.username}
                         likeMsg={() => likeMsg(i)}
+                        flagMessage={()=>flagMessage(i)}
                       />
                     </div>
                   )

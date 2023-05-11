@@ -1,7 +1,7 @@
 import { HiOutlineHeart, HiOutlineRefresh, HiOutlineShare, HiOutlineFlag } from 'react-icons/hi'
 
 
-export default function PostCard({ msg, imageurl, likes, flag, username, likeMsg }) {
+export default function PostCard({ msg, imageurl, likes, flag, username, likeMsg,flagMessage }) {
     return (
 
         <div className="avatar  space-y-6 items-start m-3">
@@ -30,7 +30,7 @@ export default function PostCard({ msg, imageurl, likes, flag, username, likeMsg
                         </div>
                         <div className="action md:px-3 text-gray-300 hover:text-yellow-200 flex cursor-pointer">
                             <HiOutlineFlag />
-                            <p className="text-xs px-2">Flag {flag}</p>
+                            <p onClick={flagMessage} className="text-xs px-2">Flag {flag}</p>
                         </div>
                     </div>
                 </div>
