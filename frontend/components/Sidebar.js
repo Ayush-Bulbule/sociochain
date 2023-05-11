@@ -78,7 +78,7 @@ export default function Sidebar({ isOpen }) {
             </ul>
           </div>
 
-          <div className="side-footer">
+          <div className="side-footer lg:hidden">
             <ConnectButton
               style={{ width: '100%' }}
               // chainStatus="none" 
