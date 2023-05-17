@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 //Database connection
-mongoose.connect(process.env.MONGO_ATLAS_URI,
+mongoose.connect(process.env.MONGODB_URI,
     {
         dbName: "sociochain",
         useNewUrlParser: true,
@@ -27,12 +27,12 @@ mongoose.connect(process.env.MONGO_ATLAS_URI,
 
 
 
-//Request to the server
+//Api Routes ----------------------------------------------------------------------------
 app.get('/', (req, res) => {
     res.send('Hello World!')
 });
 
-//Get All Users ----------------------------------------------------------------------------------
+//Get All Users --------------------------------------------------------------------------
 app.get("/api/all", async (req, res) => {
     const users = await User.find().then(users => {
         res.json({ "users": users })
@@ -46,11 +46,11 @@ app.get("/api/all", async (req, res) => {
 //signup ----------------------------------------------------------------------------------
 app.post('/api/register', async (req, res) => {
 
-    const { username, password, email, waddress } = req.body;
-    console.log(username, password, email, waddress)
+    const { username, password, email, role, waddress } = req.body;
+    console.log(username, password, email, role, waddress)
 
     if (!username || !password || !email || !waddress) {
-        return res.status(400).json({ msg: "Please enter all fields" })
+        return res.status(400).json({ "message": "Please enter all fields" })
     }
 
     //check user already exists
@@ -74,6 +74,7 @@ app.post('/api/register', async (req, res) => {
         username: username,
         password: encPass,
         email: email,
+        role: role,
         waddress: waddress
     })
 
@@ -93,7 +94,7 @@ app.post("/api/login", async (req, res) => {
     try {
 
         if (!username || !password) {
-            return res.status(400).json({ msg: "Please enter all fields" })
+            return res.status(400).json({ "message": "Please enter all fields" })
         }
 
         const user = await User.findOne({ username }).lean()
@@ -101,7 +102,7 @@ app.post("/api/login", async (req, res) => {
 
         //If user not present
         if (!user) {
-            return res.status(400).json({ "message": "Invalid Email!" })
+            return res.status(400).json({ "message": "Invalid Credentials!" })
         }
 
         const isPasswordCorrect = await bcrypt.compare(password, user.password)
