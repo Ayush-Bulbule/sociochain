@@ -104,7 +104,7 @@ export default function Home() {
         <link rel="icon" href="./logo.png" />
       </Head>
       <Layout>  {/* Body */}
-          <div className="pt-20 bg-rounded-lg ">
+          <div className="pt-20 bg-rounded-lg h-max ">
             <div className="sm:grid lg:grid-cols-5 gap-4 mb-4">
               <div className='col-span-4 sm:col-span-3 '>
                 {messages.map((message, i) => {
