@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const User = require('./model/user')
 const app = express()
 const cors = require('cors')
-const post = require('./model/post')
+const Post = require('./model/post')
 
 
 require('dotenv').config()
@@ -135,7 +135,7 @@ app.post("/api/login", async (req, res) => {
 
 
 // Save Post Data ----------------------------------------------------------------
-app.post('/savepost', (req, res) => {
+app.post('/api/savepost', (req, res) => {
     const { id, likes, dislikes, comments, flags } = req.body;
 
     try {
@@ -144,7 +144,7 @@ app.post('/savepost', (req, res) => {
             return res.status(400).json({ "error": "Post Id is Required!" })
         }
         //if id is present 
-        const post = new POst({
+        const post = new Post({
             id: id,
             likes: likes,
             dislikes: dislikes,
@@ -160,6 +160,7 @@ app.post('/savepost', (req, res) => {
         })
 
     } catch (err) {
+        console.log(err);
         res.status(500).json({ "error": "Internal Sever Error!" })
     }
 })
