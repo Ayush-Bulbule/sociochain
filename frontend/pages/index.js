@@ -11,10 +11,13 @@ import { useEffect, useState } from 'react'
 import Web3Modal from 'web3modal'
 import { ethers } from 'ethers'
 import Layout from '@/components/Layout'
+import useRequireAuth from '@/utils/useRequireAuth'
 
 
 
 export default function Home() {
+
+  useRequireAuth();
 
   const [messages, setMessages] = useState([]);
 
