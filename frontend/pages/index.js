@@ -11,10 +11,13 @@ import { useEffect, useState } from 'react'
 import Web3Modal from 'web3modal'
 import { ethers } from 'ethers'
 import Layout from '@/components/Layout'
+import useRequireAuth from '@/utils/useRequireAuth'
 
 
 
 export default function Home() {
+
+  useRequireAuth();
 
   const [messages, setMessages] = useState([]);
 
@@ -50,11 +53,27 @@ export default function Home() {
 
       setMessages(messagesClean);
       console.log(messagesClean);
-
     } catch (e) {
       console.log(e);
     }
 
+  }
+
+  async function likeMsg(id) {
+    try {
+      const web3Modal = new Web3Modal()
+      const connection = await web3Modal.connect()
+      const provider = new ethers.providers.Web3Provider(connection)
+      const signer = provider.getSigner()
+      const contract = new ethers.Contract(
+        contractAddress,
+        abi.abi,
+        signer
+      )
+      await contract.likePost(id);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   useEffect(() => {
@@ -70,23 +89,30 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./logo.png" />
       </Head>
-
       <Layout>
         {/* Body */}
         <div className="pt-20 bg-rounded-lg ">
           <div className="sm:grid lg:grid-cols-5 gap-4 mb-4">
             <div className='col-span-4 sm:col-span-3 '>
-              <PostCard />
-              <PostCard />
-              <PostCard />
-              <PostCard />
-              <PostCard />
+              {messages.map((message, i) => {
+                return (
+                  <div key={i}>
+                    <PostCard
+                      msg={message.content}
+                      imageurl={message.imageurl}
+                      likes={message.likes}
+                      flag={message.dislikes}
+                      username={message.username}
+                      likeMsg={() => likeMsg(i)}
+                    />
+                  </div>
+                )
+              })
+              }
               <PostCard />
             </div>
             <div className="fixed  hidden  lg:block xl:col-span-2 pr-3">
-
               <NewPost />
-
             </div>
 
             <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
@@ -95,6 +121,7 @@ export default function Home() {
             {/* <Advertise /> */}
           </div>
         </div>
+
       </Layout >
     </>
   )
