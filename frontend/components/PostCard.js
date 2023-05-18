@@ -23,9 +23,11 @@ export default function PostCard({ msg, imageurl, likes, flag, username, likeMsg
                         <div className="action md:px-3 text-gray-300 hover:text-green-400 flex cursor-pointer">
                             <HiOutlineRefresh />
                             <p className="text-sm px-2">ReShare</p>
+                            <p className="text-sm px-2">ReShare</p>
                         </div>
                         <div className="action md:px-3 text-gray-300 hover:text-cyan-400 flex cursor-pointer">
                             <HiOutlineShare />
+                            <p className="text-sm px-2">Share</p>
                             <p className="text-sm px-2">Share</p>
                         </div>
                         <div className="action md:px-3 text-gray-300 hover:text-yellow-200 flex cursor-pointer">

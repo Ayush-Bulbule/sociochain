@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 //Database connection
-mongoose.connect(process.env.MONGODB_URI,
+mongoose.connect(process.env.MONGO_ATLAS_URI,
     {
         dbName: "sociochain",
         useNewUrlParser: true,
