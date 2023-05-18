@@ -4,6 +4,9 @@ import { HiMoon, HiOutlineMenuAlt2, HiOutlineX, HiSun } from 'react-icons/hi';
 import styles from '../styles/Navbar.module.css'
 import Sidebar from './Sidebar';
 
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
+
 export default function Navbar() {
     const { theme, setTheme } = useTheme('dark');
 
@@ -32,12 +35,22 @@ export default function Navbar() {
                         <img src="logo.png" className="h-9 mr-3" alt="Flowbite Logo" />
                         <span className={` ${styles.brandLogo} self-center text-2xl font-semibold whitespace-nowrap dark:text-white `}>sociochain</span>
                     </a>
+                    
                     <div className="flex items-center md:order-2">
                         <div className="items-center hidden lg:flex justify-center">
+                        <div className='ml-3 hidden lg:block'><ConnectButton
+                            style={{ width: '100%' }}
+                            // chainStatus="none" 
+                            
+                            showBalance={{
+                                smallScreen: false,
+                                largeScreen: false,
+                            }} /></div>
                             <button type="button" className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                                 <span className="sr-only">Open user menu</span>
                                 <img className="w-8 h-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="user photo" />
                             </button>
+                            
                             <button onClick={toggleTheme} className='outline-none cursor-pointer'>{theme == 'dark' ? <HiSun className='text-2xl ml-3' /> : <HiMoon className='text-2xl ml-3' />}</button>
                         </div>
 
@@ -51,6 +64,8 @@ export default function Navbar() {
                                     <HiOutlineMenuAlt2 className='text-xl' />
                             }
                         </button>
+                        
+
                     </div>
                 </div>
             </nav>
