@@ -16,10 +16,17 @@ export default function Login() {
     const [isChecked, setIsChecked] = useState(false);
     const [showPass, setShowPass] = useState(false);
     const [role, setRole] = useState("user");
+    const [account, setAccount] = useState("");
+    const [isConnected, setIsConnected] = useState(false);
 
     useEffect(() => {
         setTostDisplay("flex")
     }, [message, error])
+
+
+    useEffect(() => {
+        connectWallet();
+    }, [account])
 
 
     const hideTost = () => {
@@ -77,11 +84,50 @@ export default function Login() {
             });
     }
 
+    const ifConnected = async () => {
+        try {
+            const { ethereum } = window;
+            if (!ethereum) {
+                alert("Metamask not installed")
+            }
+
+            const accounts = await ethereum.request({ method: "eth_accounts" })
+            if (accounts.length > 0) {
+                setAccount(accounts[0]);
+                setIsConnected(true)
+                console.log("connected to: ", accounts[0]);
+                console.log("Owner of the contract: ", owner)
+            } else {
+                console.log("No account found")
+            }
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    const connectWallet = async () => {
+        try {
+            const { ethereum } = window;
+            if (!ethereum) {
+                alert("Metamask not installed")
+            }
+
+            const accounts = await ethereum.request({ method: "eth_requestAccounts" })
+            setAccount(accounts[0]);
+            setIsConnected(true);
+            console.log(accounts[0]);
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
 
     return (
 
         <>
-            <div className="font-Outfit m-0 bg-gray-900 shadow flex justify-center flex-1 xl:h-screen pb-4">
+            <div className="font-Outfit m-0 bg-gray-900 shadow flex justify-center flex-1 xl:h-screen pb-4 ">
                 <div className="sm:w-3/4 lg:w-1/2 xl:w-5/12 flex flex-col items-center justify-center p-6 sm:p-12">
                     {
                         (message) ?
@@ -151,22 +197,29 @@ export default function Login() {
 
                         <div className='flex space-x-6 items-center '>
                             <div class="flex items-center mb-4">
-                                <input id="default-checkbox" type="checkbox" onClick={setRoleCheck} checked={isChecked} value={role} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                <input id="default-checkbox" type="checkbox" onChange={setRoleCheck} checked={isChecked} value={role} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                                 <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hey 👋 are you registering as Advertizer?</label>
                             </div>
                         </div>
 
                         <button onClick={registerUser} type="submit" className='w-full px-4 py-3 mt-10 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm  text-center mr-2 mb-2 '>Signup</button>
                     </form>
+                    <div onClick={connectWallet} className='w-full px-4 py-3 mt-10 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm  text-center mr-2 mb-2'>
+                        <button>{
+                            isConnected ? (
+                                <span>Connected to address</span>
+                            ) : (
+                                <span>Connect wallet</span>
+                            )
+                        }</button>
+                    </div>
                     <p className="text-md text-gray-300">Already have an Account? <Link href={"/login"} className="text-blue-500 underline">Login Now!</Link></p>
                 </div>
                 <div className="flex-1 items-center justify-center bg-slate-800 px-16  text-center hidden lg:flex h-screen">
                     <div className="w-3/4">
                         <img src="signup_img.png" alt="Login Png" />
-
                     </div>
                 </div>
-
 
             </div>
         </>
