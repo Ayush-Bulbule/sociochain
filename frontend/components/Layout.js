@@ -7,11 +7,11 @@ const Layout = ({ children }) => {
         <main>
             <Navbar />
             <Sidebar />
-            <div className=" p-4 lg:ml-64 dark:bg-gray-950">
+            <div className="min-h-[100vh] p-4 lg:ml-64 dark:bg-gray-950">
 
                 {children}
             </div>
-        </main>
+        </main >
     );
 };
 

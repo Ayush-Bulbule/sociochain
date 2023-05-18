@@ -4,6 +4,7 @@ import { MdLogout, MdPostAdd } from 'react-icons/md'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useRouter } from 'next/router';
 import useRequireAuth from '@/utils/useRequireAuth';
+import Link from 'next/link';
 
 
 export default function Sidebar({ isOpen }) {
@@ -44,10 +45,10 @@ export default function Sidebar({ isOpen }) {
             <ul className="space-y-2 pt-8 font-medium ">
 
               <li>
-                <a href="#" className="flex items-center p-2 text-gray-950 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                <Link href="/" className="flex items-center p-2 text-gray-950 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                   <HiHome className='text-2xl text-gray-500' />
                   <span className="ml-3">Home</span>
-                </a>
+                </Link>
               </li>
 
               <li>
@@ -73,7 +74,7 @@ export default function Sidebar({ isOpen }) {
               </li>
 
               <li>
-                <a onClick={logout} className="flex items-center p-2 text-gray-950 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                <a onClick={logout} className="flex cursor-pointer items-center p-2 text-gray-950 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                   <span><MdLogout className='text-xl text-gray-500' /></span>
                   <span className="flex-1 ml-3 whitespace-nowrap">Log Out</span>
                 </a>

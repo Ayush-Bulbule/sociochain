@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import PostCard from '@/components/PostCard'
-import Navbar from '@/components/Navbar'
 // import Advertise from '@/components/Advertise'
 import { FiSend } from 'react-icons/fi'
+import "../styles/Home.module.css"
 
 import NewPost from '@/components/NewPost'
 import { contractAddress } from '../../backend/config'
@@ -17,13 +17,19 @@ import useRequireAuth from '@/utils/useRequireAuth'
 
 export default function Home() {
 
-  useRequireAuth();
+  // useRequireAuth();
 
   const [messages, setMessages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
 
 
   useEffect(() => {
-    console.log(contractAddress)
+
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Adjust the delay as needed
   }, [])
 
   async function getMessages() {
@@ -106,40 +112,55 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./logo.png" />
       </Head>
-      <Layout>
-        {/* Body */}
-        <div className="pt-20 bg-rounded-lg ">
-          <div className="sm:grid lg:grid-cols-5 gap-4 mb-4">
-            <div className='col-span-4 sm:col-span-3 '>
-              {messages.map((message, i) => {
-                return (
-                  <div key={i}>
-                    <PostCard
-                      msg={message.content}
-                      imageurl={message.imageurl}
-                      likes={message.likes}
-                      flag={message.dislikes}
-                      username={message.username}
-                      likeMsg={() => likeMsg(i)}
-                    />
-                  </div>
-                )
-              })
-              }
-              <PostCard />
-            </div>
-            <div className="fixed  hidden  lg:block xl:col-span-2 pr-3">
-              <NewPost />
+
+      {
+        isLoading ?
+          <div className='flex items-center justify-center bg-slate-900 w-screen h-screen'>
+            <div class="wrapper">
+              <div class="round"></div>
+              <div class="box">
+                <img src="logo.png" className="h-12 mr-3" alt="Flowbite Logo" />
+              </div>
             </div>
 
-            <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
-              <FiSend className='font-2xl' />
-            </div>
-            {/* <Advertise /> */}
           </div>
-        </div>
+          :
+          <Layout>
+            <div className="pt-20 bg-rounded-lg ">
+              <div className="sm:grid lg:grid-cols-5 gap-4 mb-4">
+                <div className='col-span-4 sm:col-span-3 '>
+                  {messages.map((message, i) => {
+                    return (
+                      <div key={i}>
+                        <PostCard
+                          msg={message.content}
+                          imageurl={message.imageurl}
+                          likes={message.likes}
+                          flag={message.dislikes}
+                          username={message.username}
+                          likeMsg={() => likeMsg(i)}
+                        />
+                      </div>
+                    )
+                  })
+                  }
+                  <PostCard />
+                </div>
+                <div className="fixed  hidden  lg:block xl:col-span-2 pr-3">
+                  <NewPost />
+                </div>
 
-      </Layout >
+                <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
+                  <FiSend className='font-2xl' />
+                </div>
+                {/* <Advertise /> */}
+              </div>
+            </div>
+          </Layout >
+      }
+      {/* Body */}
+
+
     </>
   )
 }

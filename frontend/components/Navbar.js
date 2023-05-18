@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { HiMoon, HiOutlineMenuAlt2, HiOutlineX, HiSun } from 'react-icons/hi';
 import styles from '../styles/Navbar.module.css'
 import Sidebar from './Sidebar';
+import Link from 'next/link';
 
 
 export default function Navbar() {
@@ -34,24 +35,25 @@ export default function Navbar() {
                         <span className={` ${styles.brandLogo} self-center text-2xl font-semibold whitespace-nowrap dark:text-white `}>sociochain</span>
                     </a>
                     <div className="flex items-center md:order-2">
-                        <div className="items-center hidden lg:flex justify-center">
-                            <button type="button" className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                                <span className="sr-only">Open user menu</span>
-                                <img className="w-8 h-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="user photo" />
-                            </button>
-                            <button onClick={toggleTheme} className='outline-none cursor-pointer'>{theme == 'dark' ? <HiSun className='text-2xl ml-3' /> : <HiMoon className='text-2xl ml-3' />}</button>
-                        </div>
-
 
                         <button onClick={handleSidebarToggle} data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                             <span className="sr-only">Open sidebar</span>
                             {
                                 isSidebarOpen ?
-                                    <HiOutlineX className='text-xl' />
+                                    <HiOutlineX className='text-md' />
                                     :
-                                    <HiOutlineMenuAlt2 className='text-xl' />
+                                    <HiOutlineMenuAlt2 className='text-' />
                             }
                         </button>
+                        <div className="items-center hidden lg:flex justify-center">
+                            <button onClick={toggleTheme} className='outline-none cursor-pointer'>{theme == 'dark' ? <HiSun className='text-2xl ml-3' /> : <HiMoon className='text-2xl ml-3' />}</button>
+                            <Link href="/profile" type="button" className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                                <span className="sr-only">Open user menu</span>
+                                <img className="w-8 h-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="user photo" />
+                            </Link>
+                        </div>
+
+
                     </div>
                 </div>
             </nav>

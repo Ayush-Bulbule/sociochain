@@ -1,0 +1,62 @@
+@keyframes wave {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.round {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 400px;
+    width: 400px;
+    border-radius: 100%;
+    background-color: #7f8c8d;
+    animation-duration: 1.5s;
+    animation-delay: 1s;
+    animation-name: wave;
+    animation-iteration-count: infinite;
+}
+
+.box {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100px;
+    animation-duration: 1.5s;
+    animation-name: jump;
+    animation-iteration-count: infinite;
+}
+
+.box i {
+    font-size: 90px;
+    margin: auto;
+    color: #34495e;
+}
