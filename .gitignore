@@ -2,6 +2,11 @@
 
 # dependencies
 /node_modules
+<<<<<<< HEAD
+=======
+/backend/node_modules
+/frontend/node_modules
+>>>>>>> b32f5d75f5c1d19700ada7aa2b6d068fc59e4db0
 /.pnp
 .pnp.js
 
@@ -30,3 +35,17 @@ yarn-error.log*
 
 # vercel
 .vercel
+<<<<<<< HEAD
+=======
+
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Hardhat files
+cache
+artifacts
+
+>>>>>>> b32f5d75f5c1d19700ada7aa2b6d068fc59e4db0

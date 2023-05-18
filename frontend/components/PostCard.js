@@ -1,7 +1,7 @@
-import { HiOutlineHeart, HiOutlineRefresh, HiOutlineShare, HiOutlineFlag } from 'react-icons/hi'
+import { HiOutlineHeart, HiOutlineRefresh, HiOutlineShare, HiOutlineFlag, HiHeart } from 'react-icons/hi'
 
 
-export default function PostCard({ msg, imageurl, likes, flag, username, likeMsg,flagMessage }) {
+export default function PostCard({ msg, imageurl, likes, flag, username, likeMsg }) {
     return (
 
         <div className="avatar  space-y-6 items-start m-3">
@@ -17,20 +17,20 @@ export default function PostCard({ msg, imageurl, likes, flag, username, likeMsg
                     <img src={imageurl} className='rounded-lg my-2 ' alt="" />
                     <div className="flex flex-row">
                         <div className="action hover:text-rose-400 md:px-3 flex cursor-pointer">
-                            <HiOutlineHeart />
-                            <p onClick={likeMsg} className="text-xs px-2 ">Like {likes}</p>
+                            {likes ? <HiHeart className='text-rose-400' /> : <HiOutlineHeart />}
+                            <p onClick={likeMsg} className="text-sm px-2 "> {likes}</p>
                         </div>
                         <div className="action md:px-3 text-gray-300 hover:text-green-400 flex cursor-pointer">
                             <HiOutlineRefresh />
-                            <p className="text-xs px-2">ReShare</p>
+                            <p className="text-sm px-2">ReShare</p>
                         </div>
                         <div className="action md:px-3 text-gray-300 hover:text-cyan-400 flex cursor-pointer">
                             <HiOutlineShare />
-                            <p className="text-xs px-2">Share</p>
+                            <p className="text-sm px-2">Share</p>
                         </div>
                         <div className="action md:px-3 text-gray-300 hover:text-yellow-200 flex cursor-pointer">
                             <HiOutlineFlag />
-                            <p onClick={flagMessage} className="text-xs px-2">Flag {flag}</p>
+                            <p className="text-sm px-2">Flag {flag}</p>
                         </div>
                     </div>
                 </div>

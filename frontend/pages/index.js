@@ -11,10 +11,13 @@ import { useEffect, useState } from 'react'
 import Web3Modal from 'web3modal'
 import { ethers } from 'ethers'
 import Layout from '@/components/Layout'
+import useRequireAuth from '@/utils/useRequireAuth'
 
 
 
 export default function Home() {
+
+  useRequireAuth();
 
   const [messages, setMessages] = useState([]);
 
@@ -103,38 +106,40 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./logo.png" />
       </Head>
-      <Layout>  {/* Body */}
-          <div className="pt-20 bg-rounded-lg h-max ">
-            <div className="sm:grid lg:grid-cols-5 gap-4 mb-4">
-              <div className='col-span-4 sm:col-span-3 '>
-                {messages.map((message, i) => {
-                  return (
-                    <div key={i}>
-                      <PostCard
-                        msg={message.content}
-                        imageurl={message.imageurl}
-                        likes={message.likes}
-                        flag={message.dislikes}
-                        username={message.username}
-                        likeMsg={() => likeMsg(i)}
-                        flagMessage={()=>flagMessage(i)}
-                      />
-                    </div>
-                  )
-                })
-                }
-              </div>
-              <div className="fixed  hidden  lg:block xl:col-span-2 pr-3">
-                <NewPost />
-              </div>
-
-              <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
-                <FiSend className='font-2xl' />
-              </div>
-              {/* <Advertise /> */}
+      <Layout>
+        {/* Body */}
+        <div className="pt-20 bg-rounded-lg ">
+          <div className="sm:grid lg:grid-cols-5 gap-4 mb-4">
+            <div className='col-span-4 sm:col-span-3 '>
+              {messages.map((message, i) => {
+                return (
+                  <div key={i}>
+                    <PostCard
+                      msg={message.content}
+                      imageurl={message.imageurl}
+                      likes={message.likes}
+                      flag={message.dislikes}
+                      username={message.username}
+                      likeMsg={() => likeMsg(i)}
+                    />
+                  </div>
+                )
+              })
+              }
+              <PostCard />
             </div>
+            <div className="fixed  hidden  lg:block xl:col-span-2 pr-3">
+              <NewPost />
+            </div>
+
+            <div className="z-50 block md:hidden select-none cursor-pointer fixed bottom-2 p-4 right-4 rounded-full rounded-br-full dark:bg-blue-600 ">
+              <FiSend className='font-2xl' />
+            </div>
+            {/* <Advertise /> */}
           </div>
-        </Layout>
+        </div>
+
+      </Layout >
     </>
   )
 }

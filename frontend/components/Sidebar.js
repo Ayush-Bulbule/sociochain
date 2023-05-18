@@ -2,16 +2,23 @@ import { HiHome, HiSearch } from 'react-icons/hi';
 import { useState, useEffect } from 'react';
 import { MdLogout, MdPostAdd } from 'react-icons/md'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useRouter } from 'next/router';
+import useRequireAuth from '@/utils/useRequireAuth';
 
 
 export default function Sidebar({ isOpen }) {
+  const router = useRouter();
+
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(isOpen);
   useEffect(() => {
     setIsSidebarOpen(isOpen);
   }, [isOpen]);
 
-
+  const logout = () => {
+    localStorage.removeItem('token')
+    router.push("/login")
+  }
   const handleSidebarClose = () => {
     setIsSidebarOpen(false);
     onClose();
@@ -66,7 +73,7 @@ export default function Sidebar({ isOpen }) {
               </li>
 
               <li>
-                <a href="#" className="flex items-center p-2 text-gray-950 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                <a onClick={logout} className="flex items-center p-2 text-gray-950 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                   <span><MdLogout className='text-xl text-gray-500' /></span>
                   <span className="flex-1 ml-3 whitespace-nowrap">Log Out</span>
                 </a>
