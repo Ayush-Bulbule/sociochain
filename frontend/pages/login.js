@@ -125,7 +125,8 @@ export default function Login() {
 
                             </div>
                         </div>
-                        <button onClick={loginUser} type="submit" className='w-full px-4 py-3 mt-10 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm  text-center mr-2 mb-2 '>Login</button> </form>
+                        <button onClick={loginUser} type="submit" className='w-full px-4 py-3 mt-10 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm  text-center mr-2 mb-2 '>Login</button>
+                    </form>
                     <p className="text-md text-gray-300">Don't have an socio account? <Link href={"/signup"} className="text-blue-500 underline">Signup Now!</Link></p>
                 </div>
                 <div className="flex-1 items-center justify-center bg-slate-800 px-16  text-center hidden lg:flex h-screen">
@@ -134,7 +135,7 @@ export default function Login() {
 
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 

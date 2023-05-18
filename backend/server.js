@@ -1,13 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
-<<<<<<< HEAD
-
-const cors = require('cors')
-
-=======
 const jwt = require('jsonwebtoken')
->>>>>>> 7469ad017efbf8ae31623b915cee86a6e69e46bf
 const User = require('./model/user')
 const app = express()
 const cors = require('cors')
@@ -19,7 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 //Database connection
-mongoose.connect(process.env.MONGO_ATLAS_URI,
+mongoose.connect(process.env.MONGODB_URI,
     {
         dbName: "sociochain",
         useNewUrlParser: true,
