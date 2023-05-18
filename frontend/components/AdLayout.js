@@ -1,13 +1,13 @@
 import React from 'react';
 import Navbar from './Navbar';
-import Sidebar from './Sidebar';
+import AdSidebar from './AdSideBar';
 
 const Layout = ({ children }) => {
     return (
         <main>
             <Navbar />
-            <Sidebar />
-            <div className="h-[85vh] p-4 lg:ml-64 dark:bg-gray-950">
+            <AdSidebar />
+            <div className=" p-4 lg:ml-64 dark:bg-gray-950">
 
                 {children}
             </div>
